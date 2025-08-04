@@ -59,3 +59,43 @@ console.log(students);
 
 students.sort((a,b) => b.age - a.age);
 console.log(students);
+
+
+
+// Searching 
+
+// Binary Search 
+
+
+
+function bs(bsArr, target){
+  let left = 0;
+  let right = bsArr.length - 1;
+
+  while(left <= right){
+    let mid = Math.floor(left + right ) / 2;
+    if(bsArr[mid] === target){
+      return mid;
+    }
+     if(bsArr[mid] > target){
+      right = mid - 1;
+     }
+
+     else if(bsArr[mid] < target){
+      left = mid + 1;
+     }
+  }
+  return - 1;
+}
+
+let bsArr = [1,2,3,4,5,6,7,8,9];
+let target = 5;
+
+let result = bs(bsArr, target);
+
+if(result === - 1){
+  console.log("Element not Founded")
+}
+else{
+  console.log(`Element found in this index ${result}`);
+};
